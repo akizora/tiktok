@@ -1,16 +1,16 @@
 from TikTokApi import TikTokApi
 
-verifyfp = "クッキーを指定"
+verifyfp = "3819b87d-09f2-44f5-a076-fa98f64be896"
 api = TikTokApi.get_instance(custom_verifyFp=verifyfp)
 
 # 特定のハッシュタグを持つ動画を10個取得
 results = 10
-hashtag = 'apple'
+hashtag = 'エール'
 tiktoks = api.by_hashtag(count=results, hashtag=hashtag)
 
 # 各動画の情報をループ処理で取得
 for tiktok in tiktoks:
-    print(tiktok])
+    print(tiktok)
 
 # 動画のダウンロード
 video_bytes = api.get_video_by_tiktok(tiktoks[0])
