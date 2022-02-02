@@ -1,16 +1,25 @@
+import sys
+from dotenv import load_dotenv
 from TikTokApi import TikTokApi
 
-verifyfp = "3819b87d-09f2-44f5-a076-fa98f64be896"
-api = TikTokApi.get_instance(custom_verifyFp=verifyfp)
+
+load_dotenv(verbose=True)
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+verifyfp = os.environ.get("VERIFYFP")
+api = TikTokApi.get_instance(use_api_endpoints = True, custom_verifyFp=verifyfp)
 
 # 特定のハッシュタグを持つ動画を10個取得
-results = 10
-hashtag = 'エール'
+results = 1
+hashtag = 'apple'
 tiktoks = api.by_hashtag(count=results, hashtag=hashtag)
 
 # 各動画の情報をループ処理で取得
 for tiktok in tiktoks:
     print(tiktok)
+
+# sys.exit()
 
 # 動画のダウンロード
 video_bytes = api.get_video_by_tiktok(tiktoks[0])
