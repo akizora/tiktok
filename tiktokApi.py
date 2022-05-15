@@ -25,6 +25,20 @@ for tiktok in tiktoks:
     video_bytes = api.get_video_by_tiktok(tiktok)
     video_title = tiktok["id"]
 
+<<<<<<< HEAD
+# sys.exit()
+
+# 動画のダウンロード
+video_bytes = api.get_video_by_tiktok(tiktoks[0])
+video_title = tiktoks[0]["id"]
+
+# urlを指定して動画をダウンロードする場合は以下を使用
+# video_bytes = api.get_video_by_url('https://www.tiktok.com/@clearlyhemo/video/7032985960992361730?is_copy_url=1&is_from_webapp=v1&q=Messi&t=1638852369929')
+
+# 動画の保存
+with open(f"{video_title}.mp4", "wb") as o:
+    o.write(video_bytes)
+=======
     # urlを指定して動画をダウンロードする場合は以下を使用
     # video_bytes = api.get_video_by_url('https://www.tiktok.com/@clearlyhemo/video/7032985960992361730?is_copy_url=1&is_from_webapp=v1&q=Messi&t=1638852369929')
 
@@ -32,3 +46,4 @@ for tiktok in tiktoks:
     with open(f"{video_title}.mp4", "wb") as o:
         o.write(video_bytes)
     time.sleep(2)
+>>>>>>> 7dad733f648707d651814847e56aa20ae60ee73f
